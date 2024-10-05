@@ -1,6 +1,3 @@
-Here's the complete README file, including the code for your `Stack` implementation:
-
----
 
 # Stack Implementation using Linked List
 
