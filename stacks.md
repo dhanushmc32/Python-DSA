@@ -1,20 +1,4 @@
-# Stack Data Structure Implementation in Python
-
-This project provides a basic implementation of a **Stack** data structure using a singly linked list. The `Stack` class supports common stack operations, such as **push**, **pop**, **traverse**, **peek**, and checking if the stack is empty. Each element in the stack is represented by a `Node`, where the data and a reference to the next node in the stack are stored.
-
-## Classes
-
-### Node
-
-The `Node` class represents an individual element in the stack.
-
-#### Constructor
-
-```python
-def __init__(self, value):
-    self.data = value
-    self.next = None
-Here’s a README file for your GitHub repository, explaining the `Stack` implementation:
+Here's the complete README file, including the code for your `Stack` implementation:
 
 ---
 
@@ -33,6 +17,7 @@ This project implements a **Stack** data structure using a **Linked List** in Py
   - [traverse()](#traverse)
   - [peak()](#peak)
   - [pop()](#pop)
+- [Code](#code)
 - [How to Use](#how-to-use)
 
 ## Overview
@@ -75,6 +60,56 @@ The `Stack` class implements the stack operations. It uses a linked list to keep
 - **Description**: Removes and returns the top element of the stack.
 - **Returns**: The data of the removed element, or "stack empty" if the stack is empty.
 
+## Code
+
+Here is the complete implementation of the stack using a linked list:
+
+```python
+class Node:
+    # Node class represents an element in the stack
+    def __init__(self, value):
+        self.data = value  # Data to be stored in the node
+        self.next = None   # Pointer to the next node
+
+class Stack:
+    # Stack class to represent a stack data structure using linked nodes
+    def __init__(self):
+        self.top = None  # Top points to the top element of the stack
+
+    def isempty(self):
+        # Check if the stack is empty
+        return self.top == None
+
+    def push(self, value):
+        # Create a new node and push it onto the stack
+        new_node = Node(value)
+        new_node.next = self.top  # Link the new node to the current top
+        self.top = new_node       # Update the top to the new node
+
+    def traverse(self):
+        # Traverse and print all elements in the stack
+        temp = self.top
+        while temp != None:  # Loop until the end of the stack (None)
+            print(temp.data) # Print the current node's data
+            temp = temp.next # Move to the next node
+
+    def peak(self):
+        # Return the top element without removing it (peek operation)
+        if self.isempty():  # If the stack is empty, return an appropriate message
+            return "stack empty"
+        else:
+            return self.top.data  # Return the top element's data
+
+    def pop(self):
+        # Pop the top element from the stack and return its value
+        if self.isempty():  # If the stack is empty, return an appropriate message
+            return "stack empty"
+        else:
+            data = self.top.data  # Store the top element's data
+            self.top = self.top.next  # Move the top to the next element
+            return data  # Return the popped element's data
+```
+
 ## How to Use
 
 1. **Clone the repository**:
@@ -104,6 +139,10 @@ The `Stack` class implements the stack operations. It uses a linked list to keep
    print("Popped element:", stack.pop())
    ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
-This README gives an overview of the project and the functionality of the `Stack` implementation using a linked list. You can customize the repository link and add additional sections if needed.
+This README file now includes the complete code for the `Stack` implementation, making it easy to understand and use for anyone who checks out your repository.
